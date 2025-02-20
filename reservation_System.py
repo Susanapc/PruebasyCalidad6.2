@@ -293,6 +293,13 @@ class TestHotelManagementSystem(unittest.TestCase):
         hotel = Hotel("1", "Hotel One", "Location One", {"101": True, "102": True})
         self.assertTrue(self.system.create_hotel(hotel))
 
+    def test_create_hotel2(self):
+        """
+        Brief description of what the function does.
+        """
+        hotel = Hotel("1", "Hotel One", "Location One", {"101": True, "102": True})
+        self.assertFalse(self.system.create_hotel(hotel))
+
     def test_delete_hotel(self):
         """
         Brief description of what the function does.
@@ -312,6 +319,12 @@ class TestHotelManagementSystem(unittest.TestCase):
         hotel = Hotel("2", "Hotel Two", "Location Two", {"201": True, "202": True})
         self.system.create_hotel(hotel)
         self.assertIsNotNone(self.system.display_hotel_info("2"))
+
+    def test_display_hotel_info2(self):
+        """
+        Brief description of what the function does.
+        """
+        self.assertIsNone(self.system.display_hotel_info("9"))
 
     def test_modify_hotel_info(self):
         """
@@ -333,6 +346,13 @@ class TestHotelManagementSystem(unittest.TestCase):
         """
         reservation = Reservation("2", "1", "2", "202")
         self.assertTrue(self.system.reserve_room(reservation))
+
+    def test_reserve_room3(self):
+        """
+        Brief description of what the function does.
+        """
+        reservation = Reservation("2", "1", "2", "202")
+        self.assertFalse(self.system.reserve_room(reservation))
 
     def test_zcancel_reservation(self):
         """
